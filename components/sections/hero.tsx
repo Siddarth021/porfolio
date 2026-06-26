@@ -1,8 +1,7 @@
 'use client'
 
-import type React from 'react'
+import React, { useRef } from 'react'
 import Image from 'next/image'
-import { useRef } from 'react'
 import {
   motion,
   useScroll,
@@ -12,7 +11,8 @@ import {
   type MotionValue,
 } from 'motion/react'
 
-const roles = ['Research Engineer', 'AI Developer', 'Software Engineer']
+import { HERO, BIO } from '@/lib/content'
+
 const ease = [0.22, 1, 0.36, 1] as const
 
 export function Hero() {
@@ -63,8 +63,8 @@ export function Hero() {
       >
         <motion.div style={{ x: bgX, y: bgYm }} className="absolute -inset-12">
           <Image
-            src="/images/hero-workstation.png"
-            alt="A developer working at a calm, sunlit workstation with monitors showing code, a software dashboard and a node graph"
+            src={HERO.bgImage.src}
+            alt={HERO.bgImage.alt}
             fill
             priority
             sizes="100vw"
@@ -141,11 +141,11 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent/60" />
             <span className="relative inline-flex size-1.5 rounded-full bg-accent" />
           </span>
-          Available for research & internships
+          {HERO.availability}
         </motion.div>
 
         <h1 className="font-heading text-5xl font-semibold leading-[1.02] tracking-tight text-balance sm:text-6xl md:text-7xl">
-          {'Gundeti Siddarth'.split(' ').map((word, i) => (
+          {BIO.name.split(' ').map((word, i) => (
             <motion.span
               key={word}
               initial={{ opacity: 0, y: 28 }}
@@ -164,7 +164,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease, delay: 0.5 }}
           className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-mono text-sm text-muted-foreground"
         >
-          {roles.map((role, i) => (
+          {HERO.roles.map((role, i) => (
             <span key={role} className="flex items-center gap-3">
               {i > 0 && (
                 <span className="size-1 rounded-full bg-border" aria-hidden />
@@ -180,8 +180,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease, delay: 0.62 }}
           className="mt-8 max-w-xl text-lg leading-relaxed text-pretty text-foreground/80"
         >
-          Building intelligent systems that bridge research and real-world
-          applications.
+          {BIO.tagline}
         </motion.p>
 
         <motion.div
@@ -190,11 +189,12 @@ export function Hero() {
           transition={{ duration: 0.8, ease, delay: 0.74 }}
           className="mt-10 flex flex-col items-center gap-3 rounded-2xl border border-border/70 bg-card/60 px-6 py-4 shadow-soft backdrop-blur sm:flex-row sm:gap-6"
         >
-          <Field label="Role" value="Research Intern" />
-          <Divider />
-          <Field label="Lab" value="CoGSI Lab" />
-          <Divider />
-          <Field label="Institute" value="IIIT Hyderabad" />
+          {HERO.fields.map((field, i) => (
+            <React.Fragment key={field.label}>
+              {i > 0 && <Divider />}
+              <Field label={field.label} value={field.value} />
+            </React.Fragment>
+          ))}
         </motion.div>
       </motion.div>
 

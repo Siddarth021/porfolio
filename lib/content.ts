@@ -7,6 +7,34 @@ export const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ] as const
 
+export const BIO = {
+  name: 'Gundeti Siddarth',
+  shortName: 'GS',
+  title: 'Gundeti Siddarth — Research Engineer & AI Developer',
+  description:
+    'Building intelligent systems that bridge research and real-world applications. Research Intern at CoGSI Lab, IIIT Hyderabad.',
+  education: {
+    degree: 'B.Tech CSE',
+    institute: 'IIIT Sri City',
+    grade: 'CGPA 8.74',
+  },
+  tagline: 'Building intelligent systems that bridge research and real-world applications.',
+} as const
+
+export const HERO = {
+  availability: 'Available for research & internships',
+  roles: ['Research Engineer', 'AI Developer', 'Software Engineer'],
+  fields: [
+    { label: 'Role', value: 'Research Intern' },
+    { label: 'Lab', value: 'CoGSI Lab' },
+    { label: 'Institute', value: 'IIIT Hyderabad' },
+  ],
+  bgImage: {
+    src: '/images/hero-workstation.png',
+    alt: 'A developer working at a calm, sunlit workstation with monitors showing code, a software dashboard and a node graph',
+  },
+} as const
+
 export const JOURNEY = [
   {
     year: '2019',
@@ -42,6 +70,15 @@ export const JOURNEY = [
     year: 'Next',
     title: 'The Future',
     detail: 'Publications, open source and AI that reaches real patients.',
+  },
+] as const
+
+export const EXPERIENCE = [
+  {
+    role: 'Research Intern',
+    organization: 'CoGSI Lab, IIIT Hyderabad',
+    period: '2025 - Present',
+    details: 'Clinical & medical AI, self-supervised representation learning, and knowledge distillation.',
   },
 ] as const
 
@@ -88,6 +125,7 @@ export type Project = {
   tech: string[]
   result: string
   featured?: boolean
+  githubUrl?: string
 }
 
 export const PROJECTS: Project[] = [
@@ -205,3 +243,53 @@ export const PUBLICATIONS = [
     note: 'Balancing rare cardiac classes through realistic waveform synthesis.',
   },
 ] as const
+
+export const SOCIAL_LINKS = [
+  { label: 'Email', value: 'siddarth@example.com', href: 'mailto:siddarth@example.com', platform: 'email' },
+  { label: 'GitHub', value: '/gundeti-siddarth', href: '#', platform: 'github' },
+  { label: 'LinkedIn', value: '/gundeti-siddarth', href: '#', platform: 'linkedin' },
+] as const
+
+export const CONTACT = {
+  eyebrow: "Let's talk",
+  heading: 'Open to research, internships and meaningful collaborations.',
+  intents: ['Research', 'Internships', 'Collaborations'],
+} as const
+
+export const FOOTER = {
+  credit: 'Designed & built with intent',
+} as const
+
+export const CODING_PROFILES = {
+  leetcode: {
+    username: '@siddarth',
+    stats: [
+      { label: 'Solved', value: '480+' },
+      { label: 'Contest rating', value: '1742' },
+      { label: 'Max streak', value: '96d' },
+    ],
+    difficulty: [
+      { label: 'Easy', value: 180, total: 210, tone: 'oklch(0.7 0.13 150)' },
+      { label: 'Medium', value: 246, total: 320, tone: 'oklch(0.74 0.13 75)' },
+      { label: 'Hard', value: 54, total: 110, tone: 'oklch(0.62 0.18 25)' },
+    ],
+    badges: ['50 Days Badge', '100 Days Badge', 'Annual Streak', 'Knight'],
+  },
+  github: {
+    contributions: '1,240 contributions',
+    languages: [
+      { name: 'Python', pct: 52, tone: 'oklch(0.62 0.1 52)' },
+      { name: 'TypeScript', pct: 24, tone: 'oklch(0.55 0.04 60)' },
+      { name: 'C++', pct: 14, tone: 'oklch(0.45 0.02 65)' },
+      { name: 'Other', pct: 10, tone: 'oklch(0.8 0.01 70)' },
+    ],
+    repos: [
+      { name: 'ecgan-plus-plus', desc: 'Generative augmentation for ECG signals.', lang: 'Python', stars: 64, forks: 12 },
+      { name: 'ecg-disease-classifier', desc: 'SSL + distillation for cardiac diagnosis.', lang: 'Python', stars: 41, forks: 7 },
+      { name: 'ai-readme-generator', desc: 'LLM pipeline that writes your docs.', lang: 'TypeScript', stars: 88, forks: 19 },
+      { name: 'xploreo', desc: 'Full-stack travel planning platform.', lang: 'TypeScript', stars: 33, forks: 5 },
+    ],
+  },
+} as const
+
+export const CERTIFICATIONS = [] as const

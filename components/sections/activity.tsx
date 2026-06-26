@@ -6,33 +6,13 @@ import { GithubIcon } from '@/components/brand-icons'
 import { Eyebrow, Reveal } from '@/components/motion'
 import { Heatmap } from '@/components/sections/heatmap'
 
-const leetStats = [
-  { label: 'Solved', value: '480+', icon: Code2 },
-  { label: 'Contest rating', value: '1742', icon: Trophy },
-  { label: 'Max streak', value: '96d', icon: Flame },
-]
+import { CODING_PROFILES } from '@/lib/content'
 
-const difficulty = [
-  { label: 'Easy', value: 180, total: 210, tone: 'oklch(0.7 0.13 150)' },
-  { label: 'Medium', value: 246, total: 320, tone: 'oklch(0.74 0.13 75)' },
-  { label: 'Hard', value: 54, total: 110, tone: 'oklch(0.62 0.18 25)' },
-]
-
-const badges = ['50 Days Badge', '100 Days Badge', 'Annual Streak', 'Knight']
-
-const repos = [
-  { name: 'ecgan-plus-plus', desc: 'Generative augmentation for ECG signals.', lang: 'Python', stars: 64, forks: 12 },
-  { name: 'ecg-disease-classifier', desc: 'SSL + distillation for cardiac diagnosis.', lang: 'Python', stars: 41, forks: 7 },
-  { name: 'ai-readme-generator', desc: 'LLM pipeline that writes your docs.', lang: 'TypeScript', stars: 88, forks: 19 },
-  { name: 'xploreo', desc: 'Full-stack travel planning platform.', lang: 'TypeScript', stars: 33, forks: 5 },
-]
-
-const languages = [
-  { name: 'Python', pct: 52, tone: 'oklch(0.62 0.1 52)' },
-  { name: 'TypeScript', pct: 24, tone: 'oklch(0.55 0.04 60)' },
-  { name: 'C++', pct: 14, tone: 'oklch(0.45 0.02 65)' },
-  { name: 'Other', pct: 10, tone: 'oklch(0.8 0.01 70)' },
-]
+const iconMap = {
+  Solved: Code2,
+  'Contest rating': Trophy,
+  'Max streak': Flame,
+} as const
 
 export function Activity() {
   return (
@@ -63,29 +43,32 @@ export function Activity() {
                   </h3>
                 </div>
                 <span className="font-mono text-xs text-muted-foreground">
-                  @siddarth
+                  {CODING_PROFILES.leetcode.username}
                 </span>
               </header>
 
               <div className="mt-6 grid grid-cols-3 gap-3">
-                {leetStats.map((s) => (
-                  <div
-                    key={s.label}
-                    className="rounded-2xl border border-border/60 bg-background/60 p-4"
-                  >
-                    <s.icon className="size-4 text-accent" strokeWidth={1.7} />
-                    <p className="mt-3 font-heading text-2xl font-semibold tracking-tight">
-                      {s.value}
-                    </p>
-                    <p className="font-mono text-[11px] text-muted-foreground">
-                      {s.label}
-                    </p>
-                  </div>
-                ))}
+                {CODING_PROFILES.leetcode.stats.map((s) => {
+                  const IconComp = iconMap[s.label as keyof typeof iconMap]
+                  return (
+                    <div
+                      key={s.label}
+                      className="rounded-2xl border border-border/60 bg-background/60 p-4"
+                    >
+                      <IconComp className="size-4 text-accent" strokeWidth={1.7} />
+                      <p className="mt-3 font-heading text-2xl font-semibold tracking-tight">
+                        {s.value}
+                      </p>
+                      <p className="font-mono text-[11px] text-muted-foreground">
+                        {s.label}
+                      </p>
+                    </div>
+                  )
+                })}
               </div>
 
               <div className="mt-5 space-y-3">
-                {difficulty.map((d) => (
+                {CODING_PROFILES.leetcode.difficulty.map((d) => (
                   <div key={d.label}>
                     <div className="mb-1.5 flex items-center justify-between text-sm">
                       <span className="text-muted-foreground">{d.label}</span>
@@ -115,7 +98,7 @@ export function Activity() {
               </div>
 
               <div className="mt-6 flex flex-wrap gap-2 border-t border-border/60 pt-5">
-                {badges.map((b) => (
+                {CODING_PROFILES.leetcode.badges.map((b) => (
                   <span
                     key={b}
                     className="rounded-full border border-border/70 bg-background/60 px-3 py-1 font-mono text-[11px] text-muted-foreground"
@@ -138,7 +121,7 @@ export function Activity() {
                   <h3 className="font-heading text-lg font-semibold">GitHub</h3>
                 </div>
                 <span className="font-mono text-xs text-muted-foreground">
-                  1,240 contributions
+                  {CODING_PROFILES.github.contributions}
                 </span>
               </header>
 
@@ -151,7 +134,7 @@ export function Activity() {
                   Languages
                 </p>
                 <div className="flex h-2 overflow-hidden rounded-full">
-                  {languages.map((l) => (
+                  {CODING_PROFILES.github.languages.map((l) => (
                     <motion.span
                       key={l.name}
                       initial={{ width: 0 }}
@@ -164,7 +147,7 @@ export function Activity() {
                   ))}
                 </div>
                 <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
-                  {languages.map((l) => (
+                  {CODING_PROFILES.github.languages.map((l) => (
                     <li
                       key={l.name}
                       className="flex items-center gap-1.5 text-xs text-muted-foreground"
@@ -180,7 +163,7 @@ export function Activity() {
               </div>
 
               <div className="mt-6 grid grid-cols-1 gap-3 border-t border-border/60 pt-5 sm:grid-cols-2">
-                {repos.map((r) => (
+                {CODING_PROFILES.github.repos.map((r) => (
                   <motion.a
                     key={r.name}
                     href="#"
