@@ -1,0 +1,207 @@
+export const NAV_LINKS = [
+  { label: 'Journey', href: '#journey' },
+  { label: 'Focus', href: '#focus' },
+  { label: 'Work', href: '#work' },
+  { label: 'Activity', href: '#activity' },
+  { label: 'Research', href: '#research' },
+  { label: 'Contact', href: '#contact' },
+] as const
+
+export const JOURNEY = [
+  {
+    year: '2019',
+    title: 'Programming',
+    detail: 'First lines of code — falling for logic, structure and systems.',
+  },
+  {
+    year: '2021',
+    title: 'Machine Learning',
+    detail: 'From algorithms to models that learn from data.',
+  },
+  {
+    year: '2022',
+    title: 'Deep Learning',
+    detail: 'Neural networks, representation learning and PyTorch.',
+  },
+  {
+    year: '2023',
+    title: 'Computer Vision',
+    detail: 'Teaching machines to perceive — images, signals and structure.',
+  },
+  {
+    year: '2024',
+    title: 'Research',
+    detail: 'Self-supervised learning, explainability and rigorous method.',
+  },
+  {
+    year: '2025',
+    title: 'IIIT Hyderabad',
+    detail: 'Research Intern at CoGSI Lab — clinical & medical AI.',
+  },
+  {
+    year: 'Next',
+    title: 'The Future',
+    detail: 'Publications, open source and AI that reaches real patients.',
+  },
+] as const
+
+export const FOCUS_AREAS = [
+  {
+    title: 'Medical AI',
+    blurb: 'Clinical-grade models for diagnosis and decision support.',
+  },
+  {
+    title: 'Computer Vision',
+    blurb: 'Perception systems across images and physiological signals.',
+  },
+  {
+    title: 'Generative AI',
+    blurb: 'Synthesis, augmentation and creative modelling.',
+  },
+  {
+    title: 'LLMs',
+    blurb: 'Reasoning, retrieval and applied language systems.',
+  },
+  {
+    title: 'Research',
+    blurb: 'Reproducible experiments and publishable method.',
+  },
+  {
+    title: 'Knowledge Distillation',
+    blurb: 'Compressing large teachers into deployable students.',
+  },
+  {
+    title: 'Self-Supervised Learning',
+    blurb: 'Learning rich representations without labels.',
+  },
+  {
+    title: 'Edge AI',
+    blurb: 'Efficient inference on constrained hardware.',
+  },
+] as const
+
+export type Project = {
+  name: string
+  tagline: string
+  problem: string
+  approach: string
+  tech: string[]
+  result: string
+  featured?: boolean
+}
+
+export const PROJECTS: Project[] = [
+  {
+    name: 'ECGAN++',
+    tagline: 'Generative augmentation for cardiac signals',
+    problem: 'ECG datasets are scarce, imbalanced and privacy-bound.',
+    approach:
+      'A GAN architecture that synthesises realistic ECG waveforms to balance rare disease classes.',
+    tech: ['PyTorch', 'GANs', 'Signal Processing'],
+    result: 'Improved minority-class recall on downstream classifiers.',
+    featured: true,
+  },
+  {
+    name: 'ECG Disease Classification',
+    tagline: 'Deep learning for cardiac diagnosis',
+    problem: 'Reliable, explainable classification of cardiac conditions.',
+    approach:
+      'Self-supervised pre-training with knowledge distillation for compact, explainable models.',
+    tech: ['PyTorch', 'SSL', 'Explainable AI'],
+    result: 'Compact student models with clinically interpretable outputs.',
+    featured: true,
+  },
+  {
+    name: 'Signature Verification',
+    tagline: 'Siamese networks for forgery detection',
+    problem: 'Distinguishing genuine signatures from skilled forgeries.',
+    approach:
+      'A Siamese CNN trained with contrastive loss on signature pairs.',
+    tech: ['TensorFlow', 'Siamese Nets', 'OpenCV'],
+    result: 'High verification accuracy with few reference samples.',
+  },
+  {
+    name: 'Student Performance Prediction',
+    tagline: 'Early-warning analytics for education',
+    problem: 'Identifying at-risk students before they fall behind.',
+    approach:
+      'Feature engineering over academic records with gradient-boosted models.',
+    tech: ['Scikit-Learn', 'Pandas', 'Flask'],
+    result: 'Actionable risk scores surfaced through a simple dashboard.',
+  },
+  {
+    name: 'Network Security ML',
+    tagline: 'Intrusion detection with machine learning',
+    problem: 'Detecting malicious traffic in noisy network flows.',
+    approach:
+      'Supervised classifiers over engineered flow features for anomaly detection.',
+    tech: ['Python', 'Scikit-Learn', 'NumPy'],
+    result: 'Robust detection across multiple attack categories.',
+  },
+  {
+    name: 'AI README Generator',
+    tagline: 'Documentation, written by a model',
+    problem: 'Great repos die in obscurity from poor documentation.',
+    approach:
+      'An LLM pipeline that reads a codebase and drafts structured READMEs.',
+    tech: ['LLMs', 'Next.js', 'Node'],
+    result: 'One-click, well-structured docs for any repository.',
+  },
+  {
+    name: 'Xploreo',
+    tagline: 'A full-stack travel platform',
+    problem: 'Planning trips means juggling a dozen disconnected tabs.',
+    approach:
+      'A unified travel experience with discovery, itineraries and auth.',
+    tech: ['Next.js', 'React', 'MongoDB'],
+    result: 'A cohesive, responsive product end to end.',
+  },
+  {
+    name: 'ATM Management System',
+    tagline: 'Reliable transactional core',
+    problem: 'Modelling safe, concurrent banking operations.',
+    approach: 'A structured OOP system with persistent transactional storage.',
+    tech: ['Java', 'MySQL', 'OOP'],
+    result: 'A dependable system handling core banking flows.',
+  },
+]
+
+export const SKILL_GROUPS = [
+  {
+    label: 'Languages',
+    items: ['Python', 'C++', 'Java'],
+  },
+  {
+    label: 'AI / ML',
+    items: ['PyTorch', 'TensorFlow', 'OpenCV', 'NumPy', 'Pandas', 'Scikit-Learn'],
+  },
+  {
+    label: 'Engineering',
+    items: ['Docker', 'Git', 'Linux', 'Flask'],
+  },
+  {
+    label: 'Web & Data',
+    items: ['Next.js', 'React', 'Tailwind', 'MongoDB', 'MySQL'],
+  },
+] as const
+
+export const PUBLICATIONS = [
+  {
+    status: 'In progress',
+    title: 'Deep Learning for ECG Disease Classification',
+    venue: 'CoGSI Lab · IIIT Hyderabad',
+    note: 'Self-supervised representation learning with knowledge distillation for explainable cardiac diagnosis.',
+  },
+  {
+    status: 'Drafting',
+    title: 'A Survey of Generative Models for Physiological Signals',
+    venue: 'IEEE · Survey',
+    note: 'A structured review of GANs and diffusion models for medical signal synthesis.',
+  },
+  {
+    status: 'Coming soon',
+    title: 'ECGAN++: Synthetic Augmentation for Imbalanced ECG',
+    venue: 'Manuscript in preparation',
+    note: 'Balancing rare cardiac classes through realistic waveform synthesis.',
+  },
+] as const
